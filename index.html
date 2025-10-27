@@ -1,80 +1,131 @@
-<!-- save as index.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bhai Template — Premium Dropshipping Templates</title>
+  <title>Ghost Theme — Premium Dropshipping Themes</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <style>
+    /* Global Styles */
     *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
     body{background:#f8f9fb;color:#111;line-height:1.5}
-    header{background:#111;color:#fff;padding:18px;text-align:center;font-size:24px;font-weight:700;letter-spacing:0.5px}
-    .hero{background:linear-gradient(135deg,#0066ff,#00bfff);color:#fff;text-align:center;padding:70px 20px}
-    .hero h1{font-size:42px;margin-bottom:8px}
-    .hero p{font-size:18px;opacity:.95}
-    .templates{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;padding:40px 20px;max-width:1200px;margin:auto}
-    .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.08);transition:transform .2s}
-    .card:hover{transform:translateY(-6px)}
-    .card img{width:100%;height:190px;object-fit:cover}
-    .card-content{padding:16px;text-align:center}
-    .card-content h3{color:#0066ff;margin:10px 0 6px;font-size:20px}
-    .price{font-weight:700;color:#0099ff;font-size:18px}
-    .buy{margin-top:10px;background:#ffb703;border:none;color:#111;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;transition:.2s}
-    .buy:hover{background:#ffc933}
-    footer{background:#111;color:#fff;text-align:center;padding:14px;margin-top:50px;font-size:14px}
+    
+    /* Header (AliDropship Style) */
+    header{background:#fff;border-bottom:1px solid #eee;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:26px;font-weight:700;color:#000;letter-spacing:0.5px}
+    .logo-highlight{color:#ff5252} /* Red highlight for 'Drop' */
+    
+    /* Hero/Intro Section */
+    .intro{text-align:center;padding:40px 20px 20px}
+    .intro h1{font-size:32px;margin-bottom:6px;color:#2c3e50}
+    .intro p{font-size:16px;color:#7f8c8d}
+    
+    /* Templates Grid (Similar to Monster Theme Layout) */
+    .templates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;padding:30px 20px;max-width:1200px;margin:auto}
+    
+    /* Card Design */
+    .template-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);transition:transform .3s;position:relative}
+    .template-card:hover{transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+    
+    .card-img{width:100%;height:220px;object-fit:cover}
+    
+    /* Special "W00" Tag (for demo) */
+    .card-tag{position:absolute;top:10px;right:10px;background:#ff5252;color:#fff;padding:4px 8px;font-size:12px;font-weight:600;border-radius:4px}
+    
+    .card-content{padding:15px;text-align:left}
+    .card-title{font-size:20px;font-weight:600;margin-bottom:5px;color:#2c3e50}
+    .card-price{font-size:18px;font-weight:700;color:#27ae60;margin-bottom:10px} /* Green for price */
+    .card-price.free{color:#f39c12} /* Yellow/Orange for Free tag */
+
+    /* Button Group */
+    .btn-group{display:flex;gap:10px;margin-top:10px}
+    .btn-group a{text-decoration:none}
+
+    .btn{flex-grow:1;padding:10px 15px;border:none;border-radius:4px;font-weight:600;cursor:pointer;transition:.2s;text-align:center}
+    
+    /* Buy/Download Button Style */
+    .btn.buy{background:#0099ff;color:#fff}
+    .btn.buy:hover{background:#0077cc}
+    
+    /* Preview Button Style */
+    .btn.preview{background:#ecf0f1;color:#34495e;border:1px solid #bdc3c7}
+    .btn.preview:hover{background:#dce0e1}
+
+    /* Footer */
+    footer{background:#34495e;color:#ecf0f1;text-align:center;padding:15px;margin-top:50px;font-size:14px}
   </style>
 </head>
 <body>
-  <header>Bhai Template</header>
+  <header>
+    <div class="logo">Ghost <span class="logo-highlight">Theme</span></div>
+  </header>
 
-  <section class="hero">
-    <h1>Welcome to Bhai Template</h1>
-    <p>Buy professional dropshipping templates — Secure checkout in ₹ (INR)</p>
+  <section class="intro">
+    <h1>Premium Dropshipping Themes</h1>
+    <p>Browse our collection of high-converting, mobile-ready themes for your store.</p>
   </section>
 
-  <section class="templates" id="templates"></section>
+  <section class="templates-grid" id="templates"></section>
 
-  <footer>© <span id="year"></span> Bhai Template. All rights reserved.</footer>
+  <footer>© <span id="year"></span> Ghost Theme. All rights reserved.</footer>
 
   <script>
-    // year
     document.getElementById("year").innerText = new Date().getFullYear();
 
-    // products
+    // products data (20 Templates)
     const products = [];
     for(let i=1;i<=20;i++){
+      const isFree = i % 3 === 0; // हर तीसरा टेम्पलेट 'Free' होगा
       products.push({
         id:i,
-        name:`Bhai Template ${i}`,
-        price:499+(i%5)*100,
-        img:`https://picsum.photos/seed/bt${i}/800/500`
+        name:`Ghost Theme ${i}`, // Template का नाम बदला गया
+        price:isFree ? "Free" : 67, // $67 USD or Free
+        img:`https://picsum.photos/seed/dpt${i}/800/500`, 
+        previewUrl:`https://google.com/search?q=Ghost+Theme+Demo+${i}`, // Preview लिंक में भी नाम बदला गया
+        tag: i % 2 === 0 ? "W00" : "" 
       });
     }
 
-    // render
+    // Render Templates
     const tpl = document.getElementById("templates");
     products.forEach(p=>{
+      const priceText = p.price === "Free" ? p.price : `$${p.price} USD`;
+      const priceClass = p.price === "Free" ? 'price free' : 'price';
+
       const el=document.createElement("div");
-      el.className="card";
+      el.className="template-card";
       el.innerHTML=`
-        <img src="${p.img}" alt="${p.name}">
+        <img src="${p.img}" alt="${p.name}" class="card-img">
+        ${p.tag ? `<div class="card-tag">${p.tag}</div>` : ''}
         <div class="card-content">
-          <h3>${p.name}</h3>
-          <div class="price">₹${p.price} INR</div>
-          <button class="buy" data-id="${p.id}">Buy Now</button>
+          <div class="card-title">${p.name}</div>
+          <div class="${priceClass}">
+            ${priceText}
+          </div>
+          <div class="btn-group">
+            <button class="btn buy" data-id="${p.id}">
+              ${p.price === "Free" ? 'Download Theme' : 'Buy Now'}
+            </button>
+            <a href="${p.previewUrl}" target="_blank" class="btn preview">
+              Live Preview
+            </a>
+          </div>
         </div>`;
       tpl.appendChild(el);
     });
 
-    // click
+    // Buy/Download Click Logic
     document.addEventListener("click",e=>{
       const btn=e.target.closest(".buy");
       if(!btn)return;
       const id=Number(btn.dataset.id);
       const product=products.find(x=>x.id===id);
-      alert(`Payment gateway will open soon for: ${product.name} (₹${product.price} INR)`);
+      
+      if(product.price === "Free"){
+        alert(`Demo: ${product.name} is ready to download! (Need to upload ZIP file on GitHub)`);
+      } else {
+        alert(`Demo: Payment gateway will open soon for: ${product.name} ($${product.price} USD)`);
+      }
     });
   </script>
 </body>
