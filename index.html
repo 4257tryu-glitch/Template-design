@@ -3,94 +3,136 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ghost Theme — Premium Dropshipping Themes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Ghost Themes — Premium Dropshipping Themes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Global Styles */
     *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
-    body{background:#f8f9fb;color:#111;line-height:1.5}
+    body{background:#f8f9fb;color:#333;line-height:1.6} 
     
-    /* Header (AliDropship Style) */
-    header{background:#fff;border-bottom:1px solid #eee;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
-    .logo{font-size:26px;font-weight:700;color:#000;letter-spacing:0.5px}
-    .logo-highlight{color:#ff5252} /* Red highlight for 'Drop' */
+    /* Header (Clean & Minimal) */
+    header{background:#fff;border-bottom:1px solid #e9ecef;padding:15px 30px;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:30px;font-weight:700;color:#212529;letter-spacing:-0.5px}
+    .logo-highlight{color:#ff5252} 
     
     /* Hero/Intro Section */
-    .intro{text-align:center;padding:40px 20px 20px}
-    .intro h1{font-size:32px;margin-bottom:6px;color:#2c3e50}
-    .intro p{font-size:16px;color:#7f8c8d}
+    .intro{text-align:center;padding:70px 20px 50px;background:#fff;border-bottom:1px solid #e9ecef;}
+    .intro h1{font-size:38px;margin-bottom:10px;color:#212529}
+    .intro p{font-size:18px;color:#6c757d}
     
-    /* Templates Grid (Similar to Monster Theme Layout) */
-    .templates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;padding:30px 20px;max-width:1200px;margin:auto}
+    /* Templates Grid - Wider Cards, More Space */
+    .templates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;padding:50px 30px;max-width:1300px;margin:auto}
     
-    /* Card Design */
-    .template-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);transition:transform .3s;position:relative}
-    .template-card:hover{transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+    /* Card Design - Elevated Professional Look */
+    .template-card{background:#fff;border:1px solid #e0e0e0;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.05);transition:transform .3s, box-shadow .3s;position:relative}
+    .template-card:hover{transform:translateY(-7px);box-shadow:0 15px 40px rgba(0,0,0,0.1)}
     
-    .card-img{width:100%;height:220px;object-fit:cover}
+    .card-img{width:100%;height:240px;object-fit:cover;border-bottom:1px solid #f0f0f0}
     
-    /* Special "W00" Tag (for demo) */
-    .card-tag{position:absolute;top:10px;right:10px;background:#ff5252;color:#fff;padding:4px 8px;font-size:12px;font-weight:600;border-radius:4px}
+    /* Tag (Premium Green) */
+    .card-tag{position:absolute;top:15px;right:15px;background:#28a745;color:#fff;padding:6px 12px;font-size:13px;font-weight:600;border-radius:50px}
     
-    .card-content{padding:15px;text-align:left}
-    .card-title{font-size:20px;font-weight:600;margin-bottom:5px;color:#2c3e50}
-    .card-price{font-size:18px;font-weight:700;color:#27ae60;margin-bottom:10px} /* Green for price */
-    .card-price.free{color:#f39c12} /* Yellow/Orange for Free tag */
+    .card-content{padding:20px;text-align:left}
+    .card-title{font-size:20px;font-weight:600;margin-bottom:5px;color:#343a40}
+    
+    .card-price{font-size:16px;font-weight:400;color:#6c757d;margin-bottom:15px}
+    .card-price span{font-weight:700;font-size:24px;color:#007bff} 
+    .card-price.free span{color:#fd7e14;font-size:20px} 
 
     /* Button Group */
-    .btn-group{display:flex;gap:10px;margin-top:10px}
+    .btn-group{display:flex;gap:10px;margin-top:15px}
     .btn-group a{text-decoration:none}
 
-    .btn{flex-grow:1;padding:10px 15px;border:none;border-radius:4px;font-weight:600;cursor:pointer;transition:.2s;text-align:center}
+    .btn{flex-grow:1;padding:12px 15px;border:none;border-radius:6px;font-weight:600;cursor:pointer;transition:.2s;text-align:center;font-size:15px}
     
-    /* Buy/Download Button Style */
-    .btn.buy{background:#0099ff;color:#fff}
-    .btn.buy:hover{background:#0077cc}
+    /* Buy/Download Button Style - Primary Red */
+    .btn.buy{background:#dc3545;color:#fff}
+    .btn.buy:hover{background:#c82333}
     
-    /* Preview Button Style */
-    .btn.preview{background:#ecf0f1;color:#34495e;border:1px solid #bdc3c7}
-    .btn.preview:hover{background:#dce0e1}
+    /* Preview Button Style - Secondary Grey */
+    .btn.preview{background:#e9ecef;color:#495057;border:1px solid #ced4da}
+    .btn.preview:hover{background:#dcdfe3}
 
     /* Footer */
-    footer{background:#34495e;color:#ecf0f1;text-align:center;padding:15px;margin-top:50px;font-size:14px}
+    footer{background:#343a40;color:#f8f9fa;text-align:center;padding:20px;margin-top:50px;font-size:14px}
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">Ghost <span class="logo-highlight">Theme</span></div>
+    <div class="logo">Ghost <span class="logo-highlight">Themes</span></div>
   </header>
 
   <section class="intro">
-    <h1>Premium Dropshipping Themes</h1>
-    <p>Browse our collection of high-converting, mobile-ready themes for your store.</p>
+    <h1>High-Converting Dropshipping Themes</h1>
+    <p>Browse our curated collection of professional, mobile-optimized themes for your e-commerce store.</p>
   </section>
 
   <section class="templates-grid" id="templates"></section>
 
-  <footer>© <span id="year"></span> Ghost Theme. All rights reserved.</footer>
+  <footer>© <span id="year"></span> Ghost Themes. All rights reserved.</footer>
 
   <script>
     document.getElementById("year").innerText = new Date().getFullYear();
 
-    // products data (20 Templates)
+    // Template Categories and Data
+    const templatesData = [
+      // 1-10: Electronic Gadgets
+      { name: "TechHub Pro Theme", category: "Electronics", tag: "BEST SELLER", seed: "gadget1" },
+      { name: "SmartGear Drop Theme", category: "Electronics", tag: "NEW", seed: "gadget2" },
+      { name: "Future Gadget Store", category: "Electronics", tag: "", seed: "gadget3" },
+      { name: "E-Device Max Theme", category: "Electronics", tag: "", seed: "gadget4" },
+      { name: "Digital Life Store", category: "Electronics", tag: "NEW", seed: "gadget5" },
+      { name: "Audio Gear Theme", category: "Electronics", tag: "", seed: "gadget6" },
+      { name: "Portable Tech Store", category: "Electronics", tag: "SALE", seed: "gadget7" },
+      { name: "Home Automation Theme", category: "Electronics", tag: "", seed: "gadget8" },
+      { name: "Gaming Gear Pro", category: "Electronics", tag: "BEST SELLER", seed: "gadget9" },
+      { name: "Drone & Camera Theme", category: "Electronics", tag: "", seed: "gadget10" },
+
+      // 11-20: Skincare & Beauty
+      { name: "ClearSkin Store", category: "Skincare", tag: "NEW", seed: "skin1" },
+      { name: "Aroma Luxury Theme", category: "Skincare", tag: "BEST SELLER", seed: "skin2" },
+      { name: "Organic Beauty Drop", category: "Skincare", tag: "", seed: "skin3" },
+      { name: "Cosmetic Pro Theme", category: "Skincare", tag: "", seed: "skin4" },
+      { name: "Glow Essentials Store", category: "Skincare", tag: "NEW", seed: "skin5" },
+      { name: "Hair & Nail Theme", category: "Beauty", tag: "", seed: "skin6" },
+      { name: "Vegan Skincare Shop", category: "Skincare", tag: "SALE", seed: "skin7" },
+      { name: "Daily Ritual Theme", category: "Skincare", tag: "", seed: "skin8" },
+      { name: "Men's Grooming Theme", category: "Beauty", tag: "BEST SELLER", seed: "skin9" },
+      { name: "The Beauty Lab", category: "Skincare", tag: "", seed: "skin10" },
+
+      // 21-30: Kitchen Tools & Fitness
+      { name: "Chef's Pro Kitchen", category: "Kitchen Tools", tag: "NEW", seed: "kitchen1" },
+      { name: "Smart Cooker Theme", category: "Kitchen Tools", tag: "", seed: "kitchen2" },
+      { name: "Baking Essential Store", category: "Kitchen Tools", tag: "BEST SELLER", seed: "kitchen3" },
+      { name: "FitFuel Nutrition", category: "Fitness Powder", tag: "NEW", seed: "fitness1" },
+      { name: "Gym Life Drop Store", category: "Fitness Powder", tag: "", seed: "fitness2" },
+      { name: "Protein Power Theme", category: "Fitness Powder", tag: "SALE", seed: "fitness3" },
+      { name: "Workout Gear Store", category: "Fitness", tag: "", seed: "fitness4" },
+      { name: "Home Blender Pro", category: "Kitchen Tools", tag: "NEW", seed: "kitchen4" },
+      { name: "Organic Supplements", category: "Fitness Powder", tag: "BEST SELLER", seed: "fitness5" },
+      { name: "Coffee & Tea Tools", category: "Kitchen Tools", tag: "", seed: "kitchen5" }
+    ];
+
     const products = [];
-    for(let i=1;i<=20;i++){
-      const isFree = i % 3 === 0; // हर तीसरा टेम्पलेट 'Free' होगा
-      products.push({
-        id:i,
-        name:`Ghost Theme ${i}`, // Template का नाम बदला गया
-        price:isFree ? "Free" : 67, // $67 USD or Free
-        img:`https://picsum.photos/seed/dpt${i}/800/500`, 
-        previewUrl:`https://google.com/search?q=Ghost+Theme+Demo+${i}`, // Preview लिंक में भी नाम बदला गया
-        tag: i % 2 === 0 ? "W00" : "" 
-      });
-    }
+    templatesData.forEach((data, index) => {
+        const i = index + 1;
+        const isFree = i % 5 === 0; // हर 5वां टेम्पलेट 'Free' होगा (ताकि 6 Free हों)
+        products.push({
+            id: i,
+            name: data.name,
+            price: isFree ? "Free" : 79 + (i % 3) * 10, // $79, $89, $99
+            img: `https://picsum.photos/seed/${data.seed}/1000/600`, // Picsum images will change based on seed
+            previewUrl: `https://www.google.com/search?q=${data.name}+Demo+Preview`, 
+            tag: data.tag ? data.tag : (i === 1 ? "NEW" : "")
+        });
+    });
 
     // Render Templates
     const tpl = document.getElementById("templates");
     products.forEach(p=>{
-      const priceText = p.price === "Free" ? p.price : `$${p.price} USD`;
-      const priceClass = p.price === "Free" ? 'price free' : 'price';
+      const priceText = p.price === "Free" ? `<span>${p.price}</span>` : `<span>$${p.price}</span> USD`;
+      const priceClass = p.price === "Free" ? 'card-price free' : 'card-price';
+      const buyButtonText = p.price === "Free" ? 'Download Theme (ZIP)' : 'Buy Now';
 
       const el=document.createElement("div");
       el.className="template-card";
@@ -104,7 +146,7 @@
           </div>
           <div class="btn-group">
             <button class="btn buy" data-id="${p.id}">
-              ${p.price === "Free" ? 'Download Theme' : 'Buy Now'}
+              ${buyButtonText}
             </button>
             <a href="${p.previewUrl}" target="_blank" class="btn preview">
               Live Preview
@@ -122,9 +164,9 @@
       const product=products.find(x=>x.id===id);
       
       if(product.price === "Free"){
-        alert(`Demo: ${product.name} is ready to download! (Need to upload ZIP file on GitHub)`);
+        alert(`SUCCESS: ${product.name} is ready for download! Please upload your actual ZIP file to GitHub.`);
       } else {
-        alert(`Demo: Payment gateway will open soon for: ${product.name} ($${product.price} USD)`);
+        alert(`DEMO: Payment process would start here for: ${product.name} ($${product.price} USD).`);
       }
     });
   </script>
