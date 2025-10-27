@@ -4,34 +4,34 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bhai Template Store</title>
+  <title>Bhai Template — Premium Dropshipping Templates</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
-    body{background:#f7f9fc;color:#111}
-    header{background:#111;color:#fff;padding:20px;text-align:center;font-size:24px;font-weight:700;letter-spacing:1px}
-    .hero{background:linear-gradient(135deg,#0066ff,#00bfff);color:#fff;text-align:center;padding:60px 20px}
-    .hero h1{font-size:42px;margin-bottom:10px}
-    .hero p{font-size:18px;opacity:.9}
-    .templates{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;padding:40px 20px;max-width:1200px;margin:auto}
-    .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,0.08);transition:transform .2s}
+    body{background:#f8f9fb;color:#111;line-height:1.5}
+    header{background:#111;color:#fff;padding:18px;text-align:center;font-size:24px;font-weight:700;letter-spacing:0.5px}
+    .hero{background:linear-gradient(135deg,#0066ff,#00bfff);color:#fff;text-align:center;padding:70px 20px}
+    .hero h1{font-size:42px;margin-bottom:8px}
+    .hero p{font-size:18px;opacity:.95}
+    .templates{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;padding:40px 20px;max-width:1200px;margin:auto}
+    .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.08);transition:transform .2s}
     .card:hover{transform:translateY(-6px)}
-    .card img{width:100%;height:180px;object-fit:cover}
-    .card-content{padding:15px;text-align:center}
+    .card img{width:100%;height:190px;object-fit:cover}
+    .card-content{padding:16px;text-align:center}
     .card-content h3{color:#0066ff;margin:10px 0 6px;font-size:20px}
     .price{font-weight:700;color:#0099ff;font-size:18px}
     .buy{margin-top:10px;background:#ffb703;border:none;color:#111;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;transition:.2s}
     .buy:hover{background:#ffc933}
-    footer{background:#111;color:#fff;text-align:center;padding:12px;margin-top:40px;font-size:14px}
+    footer{background:#111;color:#fff;text-align:center;padding:14px;margin-top:50px;font-size:14px}
   </style>
 </head>
 <body>
-  <header>Bhai Template Store</header>
+  <header>Bhai Template</header>
 
   <section class="hero">
     <h1>Welcome to Bhai Template</h1>
-    <p>Buy professional dropshipping website templates — Secure, Indian & Stylish</p>
+    <p>Buy professional dropshipping templates — Secure checkout in ₹ (INR)</p>
   </section>
 
   <section class="templates" id="templates"></section>
@@ -39,8 +39,10 @@
   <footer>© <span id="year"></span> Bhai Template. All rights reserved.</footer>
 
   <script>
+    // year
     document.getElementById("year").innerText = new Date().getFullYear();
 
+    // products
     const products = [];
     for(let i=1;i<=20;i++){
       products.push({
@@ -51,6 +53,7 @@
       });
     }
 
+    // render
     const tpl = document.getElementById("templates");
     products.forEach(p=>{
       const el=document.createElement("div");
@@ -59,18 +62,19 @@
         <img src="${p.img}" alt="${p.name}">
         <div class="card-content">
           <h3>${p.name}</h3>
-          <div class="price">₹${p.price}</div>
+          <div class="price">₹${p.price} INR</div>
           <button class="buy" data-id="${p.id}">Buy Now</button>
         </div>`;
       tpl.appendChild(el);
     });
 
+    // click
     document.addEventListener("click",e=>{
       const btn=e.target.closest(".buy");
       if(!btn)return;
       const id=Number(btn.dataset.id);
       const product=products.find(x=>x.id===id);
-      alert("Payment gateway will open soon for: "+product.name+" (₹"+product.price+")");
+      alert(`Payment gateway will open soon for: ${product.name} (₹${product.price} INR)`);
     });
   </script>
 </body>
