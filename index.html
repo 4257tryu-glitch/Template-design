@@ -4,158 +4,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bhai Template — [YourName] & [PartnerName]</title>
+  <title>Bhai Template Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <style>
-    :root{--blue1:#0066ff;--blue2:#0099ff;--accent:#ffb703}
-    body{margin:0;font-family:Inter,system-ui,Arial;background:#f8fbff;color:#0b1220}
-    header{background:linear-gradient(90deg,var(--blue1),var(--blue2));color:#fff;padding:18px;text-align:center;font-weight:700}
-    .container{max-width:1100px;margin:0 auto;padding:20px}
-    .hero{text-align:center;padding:36px 12px;background:#e9f3ff;border-radius:10px;margin:16px 0}
-    .templates{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:18px}
-    .card{background:#fff;border-radius:12px;box-shadow:0 6px 24px rgba(2,6,23,0.06);overflow:hidden;text-align:center;padding-bottom:14px}
-    .card img{width:100%;height:180px;object-fit:cover;display:block}
-    .card h3{color:var(--blue1);margin:12px 0 6px}
-    .price{color:var(--blue2);font-weight:800;margin-bottom:10px}
-    .buy{background:var(--accent);border:0;padding:10px 18px;border-radius:8px;font-weight:800;cursor:pointer}
-    footer{background:var(--blue1);color:#fff;padding:12px;text-align:center;margin-top:20px}
-    .topline{display:flex;justify-content:space-between;align-items:center;gap:12px}
-    .brand{font-weight:800}
-    @media(max-width:600px){.topline{flex-direction:column;align-items:center}}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
+    body{background:#f7f9fc;color:#111}
+    header{background:#111;color:#fff;padding:20px;text-align:center;font-size:24px;font-weight:700;letter-spacing:1px}
+    .hero{background:linear-gradient(135deg,#0066ff,#00bfff);color:#fff;text-align:center;padding:60px 20px}
+    .hero h1{font-size:42px;margin-bottom:10px}
+    .hero p{font-size:18px;opacity:.9}
+    .templates{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;padding:40px 20px;max-width:1200px;margin:auto}
+    .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,0.08);transition:transform .2s}
+    .card:hover{transform:translateY(-6px)}
+    .card img{width:100%;height:180px;object-fit:cover}
+    .card-content{padding:15px;text-align:center}
+    .card-content h3{color:#0066ff;margin:10px 0 6px;font-size:20px}
+    .price{font-weight:700;color:#0099ff;font-size:18px}
+    .buy{margin-top:10px;background:#ffb703;border:none;color:#111;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;transition:.2s}
+    .buy:hover{background:#ffc933}
+    footer{background:#111;color:#fff;text-align:center;padding:12px;margin-top:40px;font-size:14px}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container topline">
-      <div class="brand" id="brand">Bhai Template — [YourName] & [PartnerName]</div>
-      <div>Premium Dropshipping Templates</div>
-    </div>
-  </header>
+  <header>Bhai Template Store</header>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Welcome to Bhai Template Store</h1>
-      <p>Buy professional dropshipping templates — secure checkout supported.</p>
-    </section>
+  <section class="hero">
+    <h1>Welcome to Bhai Template</h1>
+    <p>Buy professional dropshipping website templates — Secure, Indian & Stylish</p>
+  </section>
 
-    <section class="templates" id="templates">
-      <!-- Template cards will be injected here -->
-    </section>
-  </main>
+  <section class="templates" id="templates"></section>
 
-  <footer>© <span id="year"></span> Bhai Template — Built with ♥ by <span id="owners2">[YourName] & [PartnerName]</span></footer>
+  <footer>© <span id="year"></span> Bhai Template. All rights reserved.</footer>
 
-<script>
-/* === CONFIGURE HERE BEFORE DEPLOY ===
-   1) Replace ownerLeft / ownerRight with your real names.
-   2) If using server (recommended), set SERVER_URL to your deployed server (eg. https://your-app.onrender.com).
-   3) If you want quick client-side checkout (not secure), set RAZORPAY_KEY to your Razorpay Key ID (test or live).
-      Recommended flow: Use server endpoint /create-order to create orders on server.
-*/
-const ownerLeft = "TeraNaam";      // <-- replace
-const ownerRight = "PartnerNaam";  // <-- replace
-document.getElementById('brand').innerText = `Bhai Template — ${ownerLeft} & ${ownerRight}`;
-document.getElementById('owners2').innerText = `${ownerLeft} & ${ownerRight}`;
-document.getElementById('year').innerText = new Date().getFullYear();
+  <script>
+    document.getElementById("year").innerText = new Date().getFullYear();
 
-const USE_SERVER = true; // set true to use server flow (recommended)
-const SERVER_URL = "http://localhost:5000"; // replace with deployed server URL when live
-const RAZORPAY_KEY = "YOUR_RAZORPAY_KEY_ID"; // replace with test/live key if using client-side quick flow
-
-// Sample products (duplicate/expand to 100)
-const products = [];
-for(let i=1;i<=20;i++){
-  products.push({
-    id: i,
-    name: `Template ${i}`,
-    price: 499 + (i%5)*100, // sample prices
-    img: `https://picsum.photos/seed/t${i}/800/500`,
-    filename: `templates/template-${i}.zip`
-  });
-}
-
-// render
-const tpl = document.getElementById('templates');
-products.forEach(p=>{
-  const el = document.createElement('div'); el.className = 'card';
-  el.innerHTML = `<img src="${p.img}" alt="${p.name}"><h3>${p.name}</h3><div class="price">₹${p.price}</div>
-    <button class="buy" data-id="${p.id}">Buy Now</button>`;
-  tpl.appendChild(el);
-});
-
-// helper: open razorpay with server order if USE_SERVER true
-async function startPayment(product){
-  if(USE_SERVER){
-    // create order on server (secure) -> server returns order object
-    try {
-      const res = await fetch(`${SERVER_URL}/create-order`, {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ productId: product.id })
+    const products = [];
+    for(let i=1;i<=20;i++){
+      products.push({
+        id:i,
+        name:`Bhai Template ${i}`,
+        price:499+(i%5)*100,
+        img:`https://picsum.photos/seed/bt${i}/800/500`
       });
-      const data = await res.json();
-      if(!data || !data.order) return alert('Server order creation failed. Check server.');
-      const order = data.order;
-      const options = {
-        key: data.key_id, // server returns public key id for convenience
-        amount: order.amount,
-        currency: order.currency,
-        name: `Bhai Template — ${ownerLeft} & ${ownerRight}`,
-        description: product.name,
-        order_id: order.id,
-        handler: function (response){
-          // verify payment with server
-          fetch(`${SERVER_URL}/verify`, {
-            method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_signature: response.razorpay_signature,
-              productId: product.id
-            })
-          }).then(r=>r.json()).then(j=>{
-            if(j.ok){
-              // redirect to thank you (server can decide download link)
-              window.location.href = `/thankyou.html?pid=${response.razorpay_payment_id}&p=${product.id}`;
-            } else {
-              alert('Payment verification failed.');
-            }
-          }).catch(e=>{ console.error(e); alert('Verify request failed'); });
-        },
-        prefill: { name:'', email:'', contact:'' },
-        theme: { color:'#0066ff' }
-      };
-      const rzp = new Razorpay(options);
-      rzp.open();
-    } catch(err){
-      console.error(err); alert('Server error creating order');
     }
-  } else {
-    // quick client-side flow (not secure) - only for very early testing
-    if(!RAZORPAY_KEY || RAZORPAY_KEY === 'YOUR_RAZORPAY_KEY_ID') return alert('Set RAZORPAY_KEY in code first');
-    const options = {
-      key: RAZORPAY_KEY,
-      amount: product.price*100,
-      currency:'INR',
-      name: `Bhai Template — ${ownerLeft} & ${ownerRight}`,
-      description: product.name,
-      handler: function(res){ window.location.href = `/thankyou.html?pid=${res.razorpay_payment_id}&p=${product.id}`; },
-      prefill:{}, theme:{color:'#0066ff'}
-    };
-    new Razorpay(options).open();
-  }
-}
 
-// click handler
-document.addEventListener('click', (e)=>{
-  const btn = e.target.closest('.buy');
-  if(!btn) return;
-  const id = Number(btn.getAttribute('data-id'));
-  const prod = products.find(x=>x.id===id);
-  if(!prod) return alert('Product not found');
-  startPayment(prod);
-});
-</script>
+    const tpl = document.getElementById("templates");
+    products.forEach(p=>{
+      const el=document.createElement("div");
+      el.className="card";
+      el.innerHTML=`
+        <img src="${p.img}" alt="${p.name}">
+        <div class="card-content">
+          <h3>${p.name}</h3>
+          <div class="price">₹${p.price}</div>
+          <button class="buy" data-id="${p.id}">Buy Now</button>
+        </div>`;
+      tpl.appendChild(el);
+    });
+
+    document.addEventListener("click",e=>{
+      const btn=e.target.closest(".buy");
+      if(!btn)return;
+      const id=Number(btn.dataset.id);
+      const product=products.find(x=>x.id===id);
+      alert("Payment gateway will open soon for: "+product.name+" (₹"+product.price+")");
+    });
+  </script>
 </body>
 </html>
