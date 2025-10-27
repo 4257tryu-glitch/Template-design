@@ -1,174 +1,101 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ghost Themes — Premium Dropshipping Themes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>ThemeMarket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* Global Styles */
-    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
-    body{background:#f8f9fb;color:#333;line-height:1.6} 
-    
-    /* Header (Clean & Minimal) */
-    header{background:#fff;border-bottom:1px solid #e9ecef;padding:15px 30px;display:flex;justify-content:space-between;align-items:center}
-    .logo{font-size:30px;font-weight:700;color:#212529;letter-spacing:-0.5px}
-    .logo-highlight{color:#ff5252} 
-    
-    /* Hero/Intro Section */
-    .intro{text-align:center;padding:70px 20px 50px;background:#fff;border-bottom:1px solid #e9ecef;}
-    .intro h1{font-size:38px;margin-bottom:10px;color:#212529}
-    .intro p{font-size:18px;color:#6c757d}
-    
-    /* Templates Grid - Wider Cards, More Space */
-    .templates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;padding:50px 30px;max-width:1300px;margin:auto}
-    
-    /* Card Design - Elevated Professional Look */
-    .template-card{background:#fff;border:1px solid #e0e0e0;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.05);transition:transform .3s, box-shadow .3s;position:relative}
-    .template-card:hover{transform:translateY(-7px);box-shadow:0 15px 40px rgba(0,0,0,0.1)}
-    
-    .card-img{width:100%;height:240px;object-fit:cover;border-bottom:1px solid #f0f0f0}
-    
-    /* Tag (Premium Green) */
-    .card-tag{position:absolute;top:15px;right:15px;background:#28a745;color:#fff;padding:6px 12px;font-size:13px;font-weight:600;border-radius:50px}
-    
-    .card-content{padding:20px;text-align:left}
-    .card-title{font-size:20px;font-weight:600;margin-bottom:5px;color:#343a40}
-    
-    .card-price{font-size:16px;font-weight:400;color:#6c757d;margin-bottom:15px}
-    .card-price span{font-weight:700;font-size:24px;color:#007bff} 
-    .card-price.free span{color:#fd7e14;font-size:20px} 
-
-    /* Button Group */
-    .btn-group{display:flex;gap:10px;margin-top:15px}
-    .btn-group a{text-decoration:none}
-
-    .btn{flex-grow:1;padding:12px 15px;border:none;border-radius:6px;font-weight:600;cursor:pointer;transition:.2s;text-align:center;font-size:15px}
-    
-    /* Buy/Download Button Style - Primary Red */
-    .btn.buy{background:#dc3545;color:#fff}
-    .btn.buy:hover{background:#c82333}
-    
-    /* Preview Button Style - Secondary Grey */
-    .btn.preview{background:#e9ecef;color:#495057;border:1px solid #ced4da}
-    .btn.preview:hover{background:#dcdfe3}
-
-    /* Footer */
-    footer{background:#343a40;color:#f8f9fa;text-align:center;padding:20px;margin-top:50px;font-size:14px}
+    body { margin: 0; font-family: Arial, sans-serif; background: #f8f6ff; color: #222; }
+    .header, .bottom-nav { display: flex; justify-content: space-between; background: #e9d6fb; padding: 12px 18px; align-items: center; }
+    .logo { font-size: 1.5em; font-weight: bold; color: #6d28d9; }
+    .header-icons span, .bottom-nav span { margin: 0 8px; font-size: 1.2em; }
+    .hero { background: #e1e8fb; border-radius: 12px; padding: 18px; margin: 12px; }
+    .primary-btn { background: #7f37c9; color: #fff; padding: 8px 16px; margin: 8px 0; border-radius: 8px; border: none; cursor: pointer; }
+    .category-section, .popular-section { margin: 14px; }
+    .category-card, .theme-card { background: #fff; border-radius: 10px; margin: 8px 0; padding: 10px; box-shadow: 0 2px 6px #e0e0e0; display: inline-block; width: 44%; }
+    .chat-btn { background: #892cdc; color: #fff; border-radius: 50px; padding: 10px 20px; margin-left: 18px; border: none; cursor: pointer; }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Ghost <span class="logo-highlight">Themes</span></div>
+  <!-- Header with logo and icons -->
+  <header class="header">
+    <span class="logo">ThemeMarket</span>
+    <div class="header-icons">
+      <span>🔔</span>
+      <span>🛒</span>
+      <span>👤</span>
+    </div>
   </header>
 
-  <section class="intro">
-    <h1>High-Converting Dropshipping Themes</h1>
-    <p>Browse our curated collection of professional, mobile-optimized themes for your e-commerce store.</p>
+  <!-- Hero section / Banner -->
+  <section class="hero">
+    <h2>TechStart Electronics</h2>
+    <p>Electronics Store</p>
+    <div class="tags">
+      <span>Electronics</span>
+      <span>Tech Store</span>
+      <span>Gadgets</span>
+    </div>
+    <div class="price-row">
+      <span class="price">₹3499</span>
+      <span class="old-price"><s>₹5999</s></span>
+    </div>
+    <button class="primary-btn">Buy</button>
+    <button>View Details</button>
   </section>
 
-  <section class="templates-grid" id="templates"></section>
+  <!-- Categories -->
+  <section class="category-section">
+    <h3>Categories</h3>
+    <div class="categories">
+      <div class="category-card">
+        <img src="beauty.png" alt="Beauty" />
+        <span>Beauty</span>
+        <span>250+ Themes</span>
+      </div>
+      <div class="category-card">
+        <img src="business.png" alt="Business" />
+        <span>Business</span>
+        <span>180+ Themes</span>
+      </div>
+      <div class="category-card">
+        <img src="food.png" alt="Food" />
+        <span>Food</span>
+        <span>320+ Themes</span>
+      </div>
+    </div>
+  </section>
 
-  <footer>© <span id="year"></span> Ghost Themes. All rights reserved.</footer>
+  <!-- Popular Themes -->
+  <section class="popular-section">
+    <h3>Popular Themes <a href="#">View all</a></h3>
+    <div class="themes">
+      <div class="theme-card">
+        <img src="shop_easy.png" alt="ShopEasy" />
+        <span>ShopEasy</span>
+        <span>E-commerce</span>
+        <span>⭐ 4.6 | 799₹</span>
+        <button class="primary-btn">Buy</button>
+      </div>
+      <div class="theme-card">
+        <img src="portfolio_pro.png" alt="Portfolio Pro" />
+        <span>Portfolio Pro</span>
+        <span>Portfolio</span>
+        <span>⭐ 4.4 | Free</span>
+        <button class="primary-btn">Download</button>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    document.getElementById("year").innerText = new Date().getFullYear();
-
-    // Template Categories and Data
-    const templatesData = [
-      // 1-10: Electronic Gadgets
-      { name: "TechHub Pro Theme", category: "Electronics", tag: "BEST SELLER", seed: "gadget1" },
-      { name: "SmartGear Drop Theme", category: "Electronics", tag: "NEW", seed: "gadget2" },
-      { name: "Future Gadget Store", category: "Electronics", tag: "", seed: "gadget3" },
-      { name: "E-Device Max Theme", category: "Electronics", tag: "", seed: "gadget4" },
-      { name: "Digital Life Store", category: "Electronics", tag: "NEW", seed: "gadget5" },
-      { name: "Audio Gear Theme", category: "Electronics", tag: "", seed: "gadget6" },
-      { name: "Portable Tech Store", category: "Electronics", tag: "SALE", seed: "gadget7" },
-      { name: "Home Automation Theme", category: "Electronics", tag: "", seed: "gadget8" },
-      { name: "Gaming Gear Pro", category: "Electronics", tag: "BEST SELLER", seed: "gadget9" },
-      { name: "Drone & Camera Theme", category: "Electronics", tag: "", seed: "gadget10" },
-
-      // 11-20: Skincare & Beauty
-      { name: "ClearSkin Store", category: "Skincare", tag: "NEW", seed: "skin1" },
-      { name: "Aroma Luxury Theme", category: "Skincare", tag: "BEST SELLER", seed: "skin2" },
-      { name: "Organic Beauty Drop", category: "Skincare", tag: "", seed: "skin3" },
-      { name: "Cosmetic Pro Theme", category: "Skincare", tag: "", seed: "skin4" },
-      { name: "Glow Essentials Store", category: "Skincare", tag: "NEW", seed: "skin5" },
-      { name: "Hair & Nail Theme", category: "Beauty", tag: "", seed: "skin6" },
-      { name: "Vegan Skincare Shop", category: "Skincare", tag: "SALE", seed: "skin7" },
-      { name: "Daily Ritual Theme", category: "Skincare", tag: "", seed: "skin8" },
-      { name: "Men's Grooming Theme", category: "Beauty", tag: "BEST SELLER", seed: "skin9" },
-      { name: "The Beauty Lab", category: "Skincare", tag: "", seed: "skin10" },
-
-      // 21-30: Kitchen Tools & Fitness
-      { name: "Chef's Pro Kitchen", category: "Kitchen Tools", tag: "NEW", seed: "kitchen1" },
-      { name: "Smart Cooker Theme", category: "Kitchen Tools", tag: "", seed: "kitchen2" },
-      { name: "Baking Essential Store", category: "Kitchen Tools", tag: "BEST SELLER", seed: "kitchen3" },
-      { name: "FitFuel Nutrition", category: "Fitness Powder", tag: "NEW", seed: "fitness1" },
-      { name: "Gym Life Drop Store", category: "Fitness Powder", tag: "", seed: "fitness2" },
-      { name: "Protein Power Theme", category: "Fitness Powder", tag: "SALE", seed: "fitness3" },
-      { name: "Workout Gear Store", category: "Fitness", tag: "", seed: "fitness4" },
-      { name: "Home Blender Pro", category: "Kitchen Tools", tag: "NEW", seed: "kitchen4" },
-      { name: "Organic Supplements", category: "Fitness Powder", tag: "BEST SELLER", seed: "fitness5" },
-      { name: "Coffee & Tea Tools", category: "Kitchen Tools", tag: "", seed: "kitchen5" }
-    ];
-
-    const products = [];
-    templatesData.forEach((data, index) => {
-        const i = index + 1;
-        const isFree = i % 5 === 0; // हर 5वां टेम्पलेट 'Free' होगा (ताकि 6 Free हों)
-        products.push({
-            id: i,
-            name: data.name,
-            price: isFree ? "Free" : 79 + (i % 3) * 10, // $79, $89, $99
-            img: `https://picsum.photos/seed/${data.seed}/1000/600`, // Picsum images will change based on seed
-            previewUrl: `https://www.google.com/search?q=${data.name}+Demo+Preview`, 
-            tag: data.tag ? data.tag : (i === 1 ? "NEW" : "")
-        });
-    });
-
-    // Render Templates
-    const tpl = document.getElementById("templates");
-    products.forEach(p=>{
-      const priceText = p.price === "Free" ? `<span>${p.price}</span>` : `<span>$${p.price}</span> USD`;
-      const priceClass = p.price === "Free" ? 'card-price free' : 'card-price';
-      const buyButtonText = p.price === "Free" ? 'Download Theme (ZIP)' : 'Buy Now';
-
-      const el=document.createElement("div");
-      el.className="template-card";
-      el.innerHTML=`
-        <img src="${p.img}" alt="${p.name}" class="card-img">
-        ${p.tag ? `<div class="card-tag">${p.tag}</div>` : ''}
-        <div class="card-content">
-          <div class="card-title">${p.name}</div>
-          <div class="${priceClass}">
-            ${priceText}
-          </div>
-          <div class="btn-group">
-            <button class="btn buy" data-id="${p.id}">
-              ${buyButtonText}
-            </button>
-            <a href="${p.previewUrl}" target="_blank" class="btn preview">
-              Live Preview
-            </a>
-          </div>
-        </div>`;
-      tpl.appendChild(el);
-    });
-
-    // Buy/Download Click Logic
-    document.addEventListener("click",e=>{
-      const btn=e.target.closest(".buy");
-      if(!btn)return;
-      const id=Number(btn.dataset.id);
-      const product=products.find(x=>x.id===id);
-      
-      if(product.price === "Free"){
-        alert(`SUCCESS: ${product.name} is ready for download! Please upload your actual ZIP file to GitHub.`);
-      } else {
-        alert(`DEMO: Payment process would start here for: ${product.name} ($${product.price} USD).`);
-      }
-    });
-  </script>
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <span>🏠 Home</span>
+    <span>📂 Categories</span>
+    <span>⭐ Favorites</span>
+    <span>⬇ Downloads</span>
+    <span>👤 Profile</span>
+    <button class="chat-btn">Talk with Us</button>
+  </nav>
 </body>
 </html>
