@@ -1,41 +1,78 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Product Templates</title>
+    <meta charset="UTF-8" />
+    <title>Product Templates with Photos</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #fafafa; }
-        .category-section { max-width: 340px; margin: 30px auto; box-shadow: 0 2px 8px #ddd; border-radius: 12px; padding: 24px; background: #fff; }
-        .product-image { width: 100%; border-radius: 8px; }
-        .product-name { font-size: 22px; margin: 16px 0 12px; color: #333; }
-        .buy-btn { display: block; width: 100%; background: #f15628; color: #fff; font-size: 18px; border: none; border-radius: 8px; padding: 10px 0; cursor: pointer; transition: background 0.3s; }
-        .buy-btn:hover { background: #d1421b; }
+        body { font-family: Arial, sans-serif; background: #fafafa; padding: 20px; }
+        .category-section {
+            max-width: 400px;
+            margin: 30px auto;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+            border-radius: 15px;
+            padding: 30px;
+            background: #fff;
+            text-align: center;
+        }
+        .product-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        .product-name {
+            font-size: 26px;
+            margin: 20px 0 15px;
+            color: #222;
+            font-weight: bold;
+        }
+        .buy-btn {
+            display: inline-block;
+            background: #f15628;
+            color: white;
+            font-size: 20px;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.35s;
+            text-decoration: none;
+        }
+        .buy-btn:hover {
+            background: #d1421b;
+        }
     </style>
 </head>
 <body>
-    <!-- Beauty Skin Template -->
+
+    <!-- Beauty Skin Product -->
     <div class="category-section">
-        <img src="beauty-skin-product.jpg" alt="Beauty Skin Product" class="product-image">
+        <img src="https://images.unsplash.com/photo-1510414696678-2415ad8474aa?auto=format&fit=crop&w=600&q=80" alt="Beauty Skin Product" class="product-image" />
         <div class="product-name">Hydrating Face Serum</div>
-        <button class="buy-btn">Buy Now</button>
+        <a href="#" class="buy-btn">Buy Now</a>
     </div>
-    <!-- Electronic Gadget Template -->
+
+    <!-- Electronic Gadget Product -->
     <div class="category-section">
-        <img src="electronic-gadget.jpg" alt="Electronic Gadget" class="product-image">
+        <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=600&q=80" alt="Wireless Earbuds" class="product-image" />
         <div class="product-name">Wireless Earbuds Pro</div>
-        <button class="buy-btn">Buy Now</button>
+        <a href="#" class="buy-btn">Buy Now</a>
     </div>
-    <!-- Fitness Tool Template -->
+
+    <!-- Fitness Tool Product -->
     <div class="category-section">
-        <img src="fitness-tool.jpg" alt="Fitness Tool" class="product-image">
+        <img src="https://images.unsplash.com/photo-1546484959-f95ca80014e0?auto=format&fit=crop&w=600&q=80" alt="Smart Fitness Band" class="product-image" />
         <div class="product-name">Smart Fitness Band</div>
-        <button class="buy-btn">Buy Now</button>
+        <a href="#" class="buy-btn">Buy Now</a>
     </div>
-    <!-- Kitchen Tour Template -->
+
+    <!-- Kitchen Tool Product -->
     <div class="category-section">
-        <img src="kitchen-tour.jpg" alt="Kitchen Tool" class="product-image">
+        <img src="https://images.unsplash.com/photo-1528756514091-dee8f9fbb508?auto=format&fit=crop&w=600&q=80" alt="Multipurpose Blender" class="product-image" />
         <div class="product-name">Multipurpose Blender</div>
-        <button class="buy-btn">Buy Now</button>
+        <a href="#" class="buy-btn">Buy Now</a>
     </div>
+
 </body>
 </html>
