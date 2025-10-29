@@ -1,247 +1,41 @@
-<!--
-Dropshipping Digital Store Template (static) + Minimal AI Seller Agent Backend
-Files included in this single document:
-1) index.html        -> Static landing + product list + simple chat widget (frontend)
-2) server.js         -> Minimal Node.js + Express backend for AI seller agent (OpenAI integration)
-3) README.md         -> Deployment + step-by-step setup (Gumroad/Payhip, hosting, connect backend)
-
-How to use: copy each section into separate files (index.html, server.js, README.md). Replace placeholders like YOUR_OPENAI_KEY, YOUR_PRODUCT_BUY_LINK etc.
--->
-
-<!-- ===================== index.html ===================== -->
-<!doctype html>
-<html lang="hi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Digital Template Store — Free Dropshipping Style</title>
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans',sans-serif;margin:0;color:#111}
-    header{background:#0b74de;color:#fff;padding:28px;text-align:center}
-    .container{max-width:980px;margin:24px auto;padding:0 16px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .card{border:1px solid #eee;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.03)}
-    .price{font-weight:700;margin-top:8px}
-    .buy{display:inline-block;margin-top:12px;padding:8px 12px;border-radius:8px;text-decoration:none;background:#0b74de;color:#fff}
-    footer{padding:24px;text-align:center;color:#666}
-
-    /* Chat widget styles */
-    #chatBtn{position:fixed;right:20px;bottom:20px;background:#0b74de;color:#fff;border:none;border-radius:50%;width:64px;height:64px;font-size:28px;cursor:pointer}
-    #chatBox{position:fixed;right:20px;bottom:96px;width:320px;max-height:480px;border-radius:10px;overflow:hidden;border:1px solid #ddd;background:#fff;display:none;flex-direction:column}
-    #chatHeader{background:#0b74de;color:#fff;padding:12px}
-    #messages{padding:12px;flex:1;overflow:auto}
-    .msg{margin-bottom:10px}
-    .msg.user{text-align:right}
-    .inputWrap{display:flex;padding:8px;border-top:1px solid #eee}
-    .inputWrap input{flex:1;padding:8px;border:1px solid #ddd;border-radius:8px}
-    .inputWrap button{margin-left:8px;padding:8px 12px;border-radius:8px;background:#0b74de;color:#fff;border:none}
-  </style>
+    <meta charset="UTF-8">
+    <title>Product Templates</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #fafafa; }
+        .category-section { max-width: 340px; margin: 30px auto; box-shadow: 0 2px 8px #ddd; border-radius: 12px; padding: 24px; background: #fff; }
+        .product-image { width: 100%; border-radius: 8px; }
+        .product-name { font-size: 22px; margin: 16px 0 12px; color: #333; }
+        .buy-btn { display: block; width: 100%; background: #f15628; color: #fff; font-size: 18px; border: none; border-radius: 8px; padding: 10px 0; cursor: pointer; transition: background 0.3s; }
+        .buy-btn:hover { background: #d1421b; }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Digital Template Store</h1>
-    <p>Ready-to-use digital templates — download instantly. + AI seller agent for help (Hindi/English)</p>
-  </header>
-
-  <main class="container">
-    <section>
-      <h2>Featured Templates</h2>
-      <div class="grid">
-        <!-- Example product card: replace BUY_LINK with Gumroad/Payhip/Sellfy link -->
-        <div class="card">
-          <h3>Amazon FBA Product Listing Template</h3>
-          <p>Professional listing template for Amazon sellers. Copy + paste and sell.</p>
-          <div class="price">₹199</div>
-          <a class="buy" href="YOUR_PRODUCT_BUY_LINK_1" target="_blank">Buy / Download</a>
-        </div>
-
-        <div class="card">
-          <h3>Dropshipping Invoice Template</h3>
-          <p>Editable invoice (Google Sheets / Excel). Ready to use.</p>
-          <div class="price">₹99</div>
-          <a class="buy" href="YOUR_PRODUCT_BUY_LINK_2" target="_blank">Buy / Download</a>
-        </div>
-
-        <div class="card">
-          <h3>Social Media Ad Copy Pack</h3>
-          <p>10 high-converting ad copies + images prompts for AI image generation.</p>
-          <div class="price">₹299</div>
-          <a class="buy" href="YOUR_PRODUCT_BUY_LINK_3" target="_blank">Buy / Download</a>
-        </div>
-      </div>
-    </section>
-
-    <section style="margin-top:28px">
-      <h2>Why choose digital templates?</h2>
-      <ul>
-        <li>Instant delivery — koi shipping nahin</li>
-        <li>Low cost to create, high margin</li>
-        <li>Easy to scale and automate</li>
-      </ul>
-    </section>
-
-    <section style="margin-top:24px">
-      <h2>FAQ</h2>
-      <div>
-        <strong>Delivery</strong>
-        <p>Payment ke baad aapko download link milega (Gumroad / Payhip etc.)</p>
-      </div>
-      <div>
-        <strong>Refund</strong>
-        <p>Digital items ka refund policy aap khud set kar sakte ho — platform per depend karega.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Built for learners — deploy free on GitHub Pages / Netlify. Want customization? Chat with our AI seller agent.</p>
-  </footer>
-
-  <!-- Chat widget -->
-  <button id="chatBtn">💬</button>
-  <div id="chatBox">
-    <div id="chatHeader">AI Seller Agent — Chat in Hindi/English</div>
-    <div id="messages"></div>
-    <div class="inputWrap">
-      <input id="chatInput" placeholder="Type your question (e.g. 'Kaise buy karun?')" />
-      <button id="sendBtn">Send</button>
+    <!-- Beauty Skin Template -->
+    <div class="category-section">
+        <img src="beauty-skin-product.jpg" alt="Beauty Skin Product" class="product-image">
+        <div class="product-name">Hydrating Face Serum</div>
+        <button class="buy-btn">Buy Now</button>
     </div>
-  </div>
-
-  <script>
-    const chatBtn = document.getElementById('chatBtn');
-    const chatBox = document.getElementById('chatBox');
-    const messages = document.getElementById('messages');
-    const sendBtn = document.getElementById('sendBtn');
-    const chatInput = document.getElementById('chatInput');
-
-    chatBtn.onclick = ()=> chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
-
-    function addMessage(text, who='bot'){
-      const d = document.createElement('div'); d.className = 'msg ' + (who==='user'?'user':'bot'); d.textContent = text; messages.appendChild(d); messages.scrollTop = messages.scrollHeight;
-    }
-
-    async function send(){
-      const txt = chatInput.value.trim(); if(!txt) return;
-      addMessage(txt,'user'); chatInput.value='';
-      addMessage('Typing...','bot');
-
-      try{
-        // Replace /api/message with your deployed backend URL if needed
-        const res = await fetch('/api/message',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:txt})});
-        const j = await res.json();
-        // remove 'Typing...' (last bot message)
-        const last = messages.querySelectorAll('.msg.bot'); if(last.length) last[last.length-1].remove();
-        addMessage(j.reply || 'Kuch gadbad ho gaya.');
-      }catch(e){
-        const last = messages.querySelectorAll('.msg.bot'); if(last.length) last[last.length-1].remove();
-        addMessage('Server se response nahin aaya.');
-      }
-    }
-
-    sendBtn.onclick = send; chatInput.addEventListener('keypress', e=>{ if(e.key==='Enter') send(); });
-  </script>
+    <!-- Electronic Gadget Template -->
+    <div class="category-section">
+        <img src="electronic-gadget.jpg" alt="Electronic Gadget" class="product-image">
+        <div class="product-name">Wireless Earbuds Pro</div>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+    <!-- Fitness Tool Template -->
+    <div class="category-section">
+        <img src="fitness-tool.jpg" alt="Fitness Tool" class="product-image">
+        <div class="product-name">Smart Fitness Band</div>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+    <!-- Kitchen Tour Template -->
+    <div class="category-section">
+        <img src="kitchen-tour.jpg" alt="Kitchen Tool" class="product-image">
+        <div class="product-name">Multipurpose Blender</div>
+        <button class="buy-btn">Buy Now</button>
+    </div>
 </body>
 </html>
-
-
-
-<!-- ===================== server.js ===================== -->
-// Minimal Node.js + Express backend for AI seller agent
-// Save as server.js
-
-/*
-  Instructions:
-  1) npm init -y
-  2) npm i express node-fetch
-  3) set env OPENAI_KEY and PORT
-  4) node server.js
-*/
-
-const serverJs = `
-import express from 'express';
-import fetch from 'node-fetch';
-const app = express();
-app.use(express.json());
-
-const OPENAI_KEY = process.env.OPENAI_KEY || 'YOUR_OPENAI_KEY';
-
-app.post('/api/message', async (req, res) => {
-  const { text } = req.body;
-  if(!text) return res.status(400).json({ error: 'No text' });
-
-  try{
-    // Simple system prompt: act like a seller assistant in Hindi/English
-    const messages = [
-      { role: 'system', content: 'You are an e-commerce assistant. Keep replies short, helpful and in Hindi when user writes Hindi. Provide buy links when appropriate.' },
-      { role: 'user', content: text }
-    ];
-
-    const resp = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_KEY}` },
-      body: JSON.stringify({ model: 'gpt-4o-mini', messages, max_tokens: 300 })
-    });
-
-    const data = await resp.json();
-    const reply = data.choices?.[0]?.message?.content || 'Sorry, kuch error hua.';
-    res.json({ reply });
-  }catch(err){
-    console.error(err);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, ()=> console.log('AI seller agent running on', PORT));
-`;
-
-// include server code as text for the user to copy into server.js
-
-
-
-<!-- ===================== README.md ===================== -->
-
-# Dropshipping Digital Store — Quick Setup Guide
-
-## 1) Static site (index.html)
-- Replace `YOUR_PRODUCT_BUY_LINK_*` with real buy links from Gumroad / Payhip / Sellfy / PayPal.
-- If you don't have a payment platform, use **Gumroad** or **Payhip** (they allow digital products and provide buy links/embed buttons). They have free accounts but charge transaction fees.
-- Host the `index.html` on a free static host: GitHub Pages, Netlify, or Vercel.
-  - GitHub Pages: create repo, push index.html to `main` branch, enable Pages.
-  - Netlify: drag & drop the site folder to deploy.
-
-## 2) Payment & delivery for digital products
-- Create product on Gumroad / Payhip / Sellfy. Upload the digital file and get the product link or embed code.
-- Put that link in the `href` of each Buy button.
-
-## 3) AI Seller Agent backend
-- Create a small Node server (server.js from this doc).
-- Get an OpenAI API key and set it as `OPENAI_KEY` in environment variables on the server host.
-- Deploy backend to Render / Railway / Fly / any Node host. If you prefer serverless, you can convert endpoint to a serverless function.
-- Update the frontend fetch URL (`/api/message`) to your deployed backend URL if not on same domain.
-
-## 4) Free store builder alternatives (no-code, quick):
-- **Gumroad** — Best for digital products (simple, instant delivery). Free account available (transaction fees apply).
-- **Payhip** — Digital product focused, free plan with fees.
-- **Ecwid** — Has a free plan for small catalogs and allows embedding store into sites.
-- **Square Online** — Free plan available for basic stores.
-- **Big Cartel** — Free plan for up to 5 products.
-- **WordPress + WooCommerce** — Fully free software but needs hosting. Use free hosting or cheap hosting.
-
-## 5) Add WhatsApp / Telegram chat
-- For WhatsApp, use Twilio or Meta Business API (more setup). Twilio has paid usage. For a simpler start, use a Chat Widget (e.g., Crisp, Tidio) that offers free tier and webchat.
-- You can forward chat messages to your backend and let the AI reply.
-
-## 6) Security & GDPR
-- Do not publish your OpenAI key in frontend. Always keep it in server env.
-- Mask user PII in logs.
-
-## 7) Improve (later)
-- Add product categories, search, cart system, user accounts.
-- Connect to Shopify / WooCommerce if later you want full e-commerce features.
-
-
-----
-
-Happy deploying! If you want, I can customize this template with your store name, product list, prices, and gumroad links — batao main seedha customize kar deta hoon.
