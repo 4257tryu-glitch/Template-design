@@ -1,155 +1,247 @@
-<!DOCTYPE html>
+<!--
+Dropshipping Digital Store Template (static) + Minimal AI Seller Agent Backend
+Files included in this single document:
+1) index.html        -> Static landing + product list + simple chat widget (frontend)
+2) server.js         -> Minimal Node.js + Express backend for AI seller agent (OpenAI integration)
+3) README.md         -> Deployment + step-by-step setup (Gumroad/Payhip, hosting, connect backend)
+
+How to use: copy each section into separate files (index.html, server.js, README.md). Replace placeholders like YOUR_OPENAI_KEY, YOUR_PRODUCT_BUY_LINK etc.
+-->
+
+<!-- ===================== index.html ===================== -->
+<!doctype html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Product Templates Store</title>
-<style>
-  body { font-family: Arial, sans-serif; background: #f8f6ff; margin: 0; }
-  header { background: #ddd6f9; color: #6d28d9; padding: 12px; font-size: 24px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
-  #searchBar { width: 90%; max-width: 600px; margin: 15px auto; display: block; padding: 10px; border-radius: 8px; border: 1px solid #888; font-size: 16px; }
-  .templates-grid { max-width: 960px; margin: 20px auto; display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 18px; }
-  .template-card { background: white; border-radius: 12px; box-shadow: 0 0 8px #ccc; padding: 15px; position: relative; display: flex; flex-direction: column; }
-  .template-img { width: 100%; border-radius: 8px; margin-bottom: 12px; object-fit: cover; height: 160px; }
-  h3 { margin: 0 0 8px 0; color: #6d28d9; }
-  p { margin: 0 0 8px 0; color: #555; }
-  .btn-container { display: flex; justify-content: space-between; margin-top: auto; }
-  button { border: none; border-radius: 6px; padding: 8px 12px; cursor: pointer; font-weight: bold; }
-  button.buy { background: #7f37c9; color: white; flex-grow: 1; margin-right: 8px; }
-  button.download { background: grey; color: white; cursor: not-allowed; flex-grow: 1; margin-left: 8px; }
-  button.download.active { background: #5a22a4; cursor: pointer; }
-  button.review { background: #555; color: white; margin-top: 10px; width: 100%; }
-  .favorite-btn { background: transparent; border: none; font-size: 20px; cursor: pointer; color: #777; margin-top: 10px; }
-  .favorite-btn.active { color: red; }
-  nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #ddd6f9; display: flex; justify-content: space-around; padding: 10px 0; font-weight: bold; }
-  nav span { cursor: pointer; }
-  #profile { display: flex; align-items: center; color: #6d28d9; }
-  #profile img { width: 32px; height: 32px; margin-left: 8px; border-radius: 50%; }
-  .modal-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; }
-  .modal { background: white; border-radius: 12px; padding: 20px; max-width: 500px; width: 90%; }
-  .modal h3 { margin-top: 0; }
-  .modal button.close { background: transparent; border: none; font-size: 24px; float: right; cursor: pointer; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Digital Template Store — Free Dropshipping Style</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans',sans-serif;margin:0;color:#111}
+    header{background:#0b74de;color:#fff;padding:28px;text-align:center}
+    .container{max-width:980px;margin:24px auto;padding:0 16px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .card{border:1px solid #eee;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.03)}
+    .price{font-weight:700;margin-top:8px}
+    .buy{display:inline-block;margin-top:12px;padding:8px 12px;border-radius:8px;text-decoration:none;background:#0b74de;color:#fff}
+    footer{padding:24px;text-align:center;color:#666}
+
+    /* Chat widget styles */
+    #chatBtn{position:fixed;right:20px;bottom:20px;background:#0b74de;color:#fff;border:none;border-radius:50%;width:64px;height:64px;font-size:28px;cursor:pointer}
+    #chatBox{position:fixed;right:20px;bottom:96px;width:320px;max-height:480px;border-radius:10px;overflow:hidden;border:1px solid #ddd;background:#fff;display:none;flex-direction:column}
+    #chatHeader{background:#0b74de;color:#fff;padding:12px}
+    #messages{padding:12px;flex:1;overflow:auto}
+    .msg{margin-bottom:10px}
+    .msg.user{text-align:right}
+    .inputWrap{display:flex;padding:8px;border-top:1px solid #eee}
+    .inputWrap input{flex:1;padding:8px;border:1px solid #ddd;border-radius:8px}
+    .inputWrap button{margin-left:8px;padding:8px 12px;border-radius:8px;background:#0b74de;color:#fff;border:none}
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Digital Template Store</h1>
+    <p>Ready-to-use digital templates — download instantly. + AI seller agent for help (Hindi/English)</p>
+  </header>
 
-<header>
-  Product Store
-  <div id="profile">Darling User</div>
-</header>
+  <main class="container">
+    <section>
+      <h2>Featured Templates</h2>
+      <div class="grid">
+        <!-- Example product card: replace BUY_LINK with Gumroad/Payhip/Sellfy link -->
+        <div class="card">
+          <h3>Amazon FBA Product Listing Template</h3>
+          <p>Professional listing template for Amazon sellers. Copy + paste and sell.</p>
+          <div class="price">₹199</div>
+          <a class="buy" href="YOUR_PRODUCT_BUY_LINK_1" target="_blank">Buy / Download</a>
+        </div>
 
-<input type="text" id="searchBar" placeholder="Search templates..." />
+        <div class="card">
+          <h3>Dropshipping Invoice Template</h3>
+          <p>Editable invoice (Google Sheets / Excel). Ready to use.</p>
+          <div class="price">₹99</div>
+          <a class="buy" href="YOUR_PRODUCT_BUY_LINK_2" target="_blank">Buy / Download</a>
+        </div>
 
-<div class="templates-grid" id="templatesGrid"></div>
-
-<nav>
-  <span>Home</span>
-  <span>Categories</span>
-  <span>Favorites</span>
-  <span>Downloads</span>
-  <span>Profile</span>
-</nav>
-
-<div class="modal-bg" id="reviewModal">
-  <div class="modal">
-    <button class="close" onclick="closeReviewModal()">×</button>
-    <h3 id="modalTitle"></h3>
-    <p id="modalContent"></p>
-    <a href="#" id="modalPreviewLink" target="_blank" style="color:#7f37c9;">Live Preview</a>
-  </div>
-</div>
-
-<script>
-const templates = [
-  {id: 1, name: "Cabinet Modern", category: "Furniture", themes: 150, price: 1999, img: "https://via.placeholder.com/400x220?text=Cabinet+Modern", review: "Modern cabinet design suitable for living rooms.", previewLink: "https://example.com/cabinet-modern"},
-  {id: 2, name: "Classic Cabinet", category: "Furniture", themes: 100, price: 2499, img: "https://via.placeholder.com/400x220?text=Classic+Cabinet", review: "Timeless classic cabinet with premium finish.", previewLink: "https://example.com/classic-cabinet"},
-  {id: 3, name: "Wooden Shelf", category: "Furniture", themes: 200, price: 2999, img: "https://via.placeholder.com/400x220?text=Wooden+Shelf", review: "Elegant wooden shelf for storage and decoration.", previewLink: "https://example.com/wooden-shelf"},
-  {id: 4, name: "Modern Table", category: "Furniture", themes: 130, price: 1599, img: "https://via.placeholder.com/400x220?text=Modern+Table", review: "Stylish modern table for dining rooms.", previewLink: "https://example.com/modern-table"},
-  {id: 5, name: "Office Chair", category: "Furniture", themes: 180, price: 1899, img: "https://via.placeholder.com/400x220?text=Office+Chair", review: "Ergonomic office chair for comfort.", previewLink: "https://example.com/office-chair"},
-  {id: 6, name: "Bookshelf", category: "Furniture", themes: 210, price: 2299, img: "https://via.placeholder.com/400x220?text=Bookshelf", review: "Spacious bookshelf for organizing books.", previewLink: "https://example.com/bookshelf"},
-  {id: 7, name: "Dining Set", category: "Furniture", themes: 170, price: 3499, img: "https://via.placeholder.com/400x220?text=Dining+Set", review: "Complete dining set for family meals.", previewLink: "https://example.com/dining-set"},
-  {id: 8, name: "Coffee Table", category: "Furniture", themes: 140, price: 1599, img: "https://via.placeholder.com/400x220?text=Coffee+Table", review: "Coffee table with glass top.", previewLink: "https://example.com/coffee-table"},
-  {id: 9, name: "Wardrobe", category: "Furniture", themes: 220, price: 3999, img: "https://via.placeholder.com/400x220?text=Wardrobe", review: "Spacious wardrobe with multiple compartments.", previewLink: "https://example.com/wardrobe"},
-  {id: 10, name: "TV Stand", category: "Furniture", themes: 160, price: 1799, img: "https://via.placeholder.com/400x220?text=TV+Stand", review: "Stylish TV stand for living rooms.", previewLink: "https://example.com/tv-stand"}
-];
-
-let purchasedTemplates = new Set();
-let favoriteTemplates = new Set();
-
-const templatesGrid = document.getElementById("templatesGrid");
-const searchBar = document.getElementById("searchBar");
-
-function renderTemplates(filter = "") {
-  templatesGrid.innerHTML = "";
-  const filtered = templates.filter(t => t.name.toLowerCase().includes(filter.toLowerCase()) || t.category.toLowerCase().includes(filter.toLowerCase())).slice(0,10);
-  if(filtered.length === 0) {
-    templatesGrid.innerHTML = "<p style='grid-column: span 3; text-align: center;'>No templates found.</p>";
-    return;
-  }
-  filtered.forEach(template => {
-    const card = document.createElement("div");
-    card.className = "template-card";
-    card.innerHTML = `
-      <img src="${template.img}" alt="${template.name}" class="template-img" />
-      <h3>${template.name}</h3>
-      <p>${template.category} - ${template.themes}+ Themes</p>
-      <p>₹${template.price}</p>
-      <div class="btn-container">
-        <button class="buy" onclick="buyTemplate(${template.id})" ${purchasedTemplates.has(template.id) ? "disabled" : ""}>Buy</button>
-        <button class="download ${purchasedTemplates.has(template.id) ? 'active' : ''}" onclick="downloadTemplate(${template.id})" ${purchasedTemplates.has(template.id) ? "" : "disabled"}>Download</button>
+        <div class="card">
+          <h3>Social Media Ad Copy Pack</h3>
+          <p>10 high-converting ad copies + images prompts for AI image generation.</p>
+          <div class="price">₹299</div>
+          <a class="buy" href="YOUR_PRODUCT_BUY_LINK_3" target="_blank">Buy / Download</a>
+        </div>
       </div>
-      <button class="review" onclick="showReview(${template.id})">Review</button>
-      <button class="favorite-btn ${favoriteTemplates.has(template.id) ? 'active' : ''}" onclick="toggleFavorite(${template.id}, this)">❤</button>
-    `;
-    templatesGrid.appendChild(card);
-  });
-}
+    </section>
 
-function buyTemplate(id) {
-  purchasedTemplates.add(id);
-  renderTemplates(searchBar.value);
-  alert("Thanks for purchasing!");
-}
+    <section style="margin-top:28px">
+      <h2>Why choose digital templates?</h2>
+      <ul>
+        <li>Instant delivery — koi shipping nahin</li>
+        <li>Low cost to create, high margin</li>
+        <li>Easy to scale and automate</li>
+      </ul>
+    </section>
 
-function downloadTemplate(id) {
-  if(!purchasedTemplates.has(id)) {
-    alert("Please buy the template first.");
-    return;
-  }
-  alert("Downloading template id: " + id);
-}
+    <section style="margin-top:24px">
+      <h2>FAQ</h2>
+      <div>
+        <strong>Delivery</strong>
+        <p>Payment ke baad aapko download link milega (Gumroad / Payhip etc.)</p>
+      </div>
+      <div>
+        <strong>Refund</strong>
+        <p>Digital items ka refund policy aap khud set kar sakte ho — platform per depend karega.</p>
+      </div>
+    </section>
+  </main>
 
-function showReview(id) {
-  const template = templates.find(t => t.id === id);
-  if(!template) return;
-  document.getElementById("modalTitle").innerText = template.name + " - Review";
-  document.getElementById("modalContent").innerText = template.review;
-  const previewLink = document.getElementById("modalPreviewLink");
-  previewLink.href = template.previewLink;
-  previewLink.innerText = "Live Preview";
-  document.getElementById("reviewModal").style.display = "flex";
-}
+  <footer>
+    <p>Built for learners — deploy free on GitHub Pages / Netlify. Want customization? Chat with our AI seller agent.</p>
+  </footer>
 
-function closeReviewModal() {
-  document.getElementById("reviewModal").style.display = "none";
-}
+  <!-- Chat widget -->
+  <button id="chatBtn">💬</button>
+  <div id="chatBox">
+    <div id="chatHeader">AI Seller Agent — Chat in Hindi/English</div>
+    <div id="messages"></div>
+    <div class="inputWrap">
+      <input id="chatInput" placeholder="Type your question (e.g. 'Kaise buy karun?')" />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
 
-function toggleFavorite(id, btn) {
-  if(favoriteTemplates.has(id)) {
-    favoriteTemplates.delete(id);
-    btn.classList.remove("active");
-  } else {
-    favoriteTemplates.add(id);
-    btn.classList.add("active");
-  }
-}
+  <script>
+    const chatBtn = document.getElementById('chatBtn');
+    const chatBox = document.getElementById('chatBox');
+    const messages = document.getElementById('messages');
+    const sendBtn = document.getElementById('sendBtn');
+    const chatInput = document.getElementById('chatInput');
 
-searchBar.addEventListener("input", function(e) {
-  renderTemplates(e.target.value);
-});
+    chatBtn.onclick = ()=> chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
 
-renderTemplates();
-</script>
+    function addMessage(text, who='bot'){
+      const d = document.createElement('div'); d.className = 'msg ' + (who==='user'?'user':'bot'); d.textContent = text; messages.appendChild(d); messages.scrollTop = messages.scrollHeight;
+    }
 
+    async function send(){
+      const txt = chatInput.value.trim(); if(!txt) return;
+      addMessage(txt,'user'); chatInput.value='';
+      addMessage('Typing...','bot');
+
+      try{
+        // Replace /api/message with your deployed backend URL if needed
+        const res = await fetch('/api/message',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:txt})});
+        const j = await res.json();
+        // remove 'Typing...' (last bot message)
+        const last = messages.querySelectorAll('.msg.bot'); if(last.length) last[last.length-1].remove();
+        addMessage(j.reply || 'Kuch gadbad ho gaya.');
+      }catch(e){
+        const last = messages.querySelectorAll('.msg.bot'); if(last.length) last[last.length-1].remove();
+        addMessage('Server se response nahin aaya.');
+      }
+    }
+
+    sendBtn.onclick = send; chatInput.addEventListener('keypress', e=>{ if(e.key==='Enter') send(); });
+  </script>
 </body>
 </html>
+
+
+
+<!-- ===================== server.js ===================== -->
+// Minimal Node.js + Express backend for AI seller agent
+// Save as server.js
+
+/*
+  Instructions:
+  1) npm init -y
+  2) npm i express node-fetch
+  3) set env OPENAI_KEY and PORT
+  4) node server.js
+*/
+
+const serverJs = `
+import express from 'express';
+import fetch from 'node-fetch';
+const app = express();
+app.use(express.json());
+
+const OPENAI_KEY = process.env.OPENAI_KEY || 'YOUR_OPENAI_KEY';
+
+app.post('/api/message', async (req, res) => {
+  const { text } = req.body;
+  if(!text) return res.status(400).json({ error: 'No text' });
+
+  try{
+    // Simple system prompt: act like a seller assistant in Hindi/English
+    const messages = [
+      { role: 'system', content: 'You are an e-commerce assistant. Keep replies short, helpful and in Hindi when user writes Hindi. Provide buy links when appropriate.' },
+      { role: 'user', content: text }
+    ];
+
+    const resp = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_KEY}` },
+      body: JSON.stringify({ model: 'gpt-4o-mini', messages, max_tokens: 300 })
+    });
+
+    const data = await resp.json();
+    const reply = data.choices?.[0]?.message?.content || 'Sorry, kuch error hua.';
+    res.json({ reply });
+  }catch(err){
+    console.error(err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, ()=> console.log('AI seller agent running on', PORT));
+`;
+
+// include server code as text for the user to copy into server.js
+
+
+
+<!-- ===================== README.md ===================== -->
+
+# Dropshipping Digital Store — Quick Setup Guide
+
+## 1) Static site (index.html)
+- Replace `YOUR_PRODUCT_BUY_LINK_*` with real buy links from Gumroad / Payhip / Sellfy / PayPal.
+- If you don't have a payment platform, use **Gumroad** or **Payhip** (they allow digital products and provide buy links/embed buttons). They have free accounts but charge transaction fees.
+- Host the `index.html` on a free static host: GitHub Pages, Netlify, or Vercel.
+  - GitHub Pages: create repo, push index.html to `main` branch, enable Pages.
+  - Netlify: drag & drop the site folder to deploy.
+
+## 2) Payment & delivery for digital products
+- Create product on Gumroad / Payhip / Sellfy. Upload the digital file and get the product link or embed code.
+- Put that link in the `href` of each Buy button.
+
+## 3) AI Seller Agent backend
+- Create a small Node server (server.js from this doc).
+- Get an OpenAI API key and set it as `OPENAI_KEY` in environment variables on the server host.
+- Deploy backend to Render / Railway / Fly / any Node host. If you prefer serverless, you can convert endpoint to a serverless function.
+- Update the frontend fetch URL (`/api/message`) to your deployed backend URL if not on same domain.
+
+## 4) Free store builder alternatives (no-code, quick):
+- **Gumroad** — Best for digital products (simple, instant delivery). Free account available (transaction fees apply).
+- **Payhip** — Digital product focused, free plan with fees.
+- **Ecwid** — Has a free plan for small catalogs and allows embedding store into sites.
+- **Square Online** — Free plan available for basic stores.
+- **Big Cartel** — Free plan for up to 5 products.
+- **WordPress + WooCommerce** — Fully free software but needs hosting. Use free hosting or cheap hosting.
+
+## 5) Add WhatsApp / Telegram chat
+- For WhatsApp, use Twilio or Meta Business API (more setup). Twilio has paid usage. For a simpler start, use a Chat Widget (e.g., Crisp, Tidio) that offers free tier and webchat.
+- You can forward chat messages to your backend and let the AI reply.
+
+## 6) Security & GDPR
+- Do not publish your OpenAI key in frontend. Always keep it in server env.
+- Mask user PII in logs.
+
+## 7) Improve (later)
+- Add product categories, search, cart system, user accounts.
+- Connect to Shopify / WooCommerce if later you want full e-commerce features.
+
+
+----
+
+Happy deploying! If you want, I can customize this template with your store name, product list, prices, and gumroad links — batao main seedha customize kar deta hoon.
