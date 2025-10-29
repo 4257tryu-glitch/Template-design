@@ -1,78 +1,111 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Product Templates with Photos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Templates</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #fafafa; padding: 20px; }
-        .category-section {
-            max-width: 400px;
-            margin: 30px auto;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-            border-radius: 15px;
-            padding: 30px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
             background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
             text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s;
         }
-        .product-image {
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
             width: 100%;
-            max-height: 300px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 15px;
         }
-        .product-name {
-            font-size: 26px;
-            margin: 20px 0 15px;
-            color: #222;
-            font-weight: bold;
+
+        .card h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
         }
-        .buy-btn {
-            display: inline-block;
-            background: #f15628;
-            color: white;
-            font-size: 20px;
-            padding: 15px 40px;
+
+        .card p {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            margin: 10px 0;
             border: none;
-            border-radius: 12px;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 1em;
             cursor: pointer;
-            transition: background 0.35s;
-            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        .buy-btn:hover {
-            background: #d1421b;
+
+        .card button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-
-    <!-- Beauty Skin Product -->
-    <div class="category-section">
-        <img src="https://images.unsplash.com/photo-1510414696678-2415ad8474aa?auto=format&fit=crop&w=600&q=80" alt="Beauty Skin Product" class="product-image" />
-        <div class="product-name">Hydrating Face Serum</div>
-        <a href="#" class="buy-btn">Buy Now</a>
+    <div class="container">
+        <div class="card">
+            <img src="screen-care.jpg" alt="Screen Care">
+            <h2>Screen Care</h2>
+            <p>Price: ₹399</p>
+            <button>Buy</button>
+        </div>
+        <div class="card">
+            <img src="fitness.jpg" alt="Fitness Products">
+            <h2>Fitness Products</h2>
+            <p>Price: ₹999</p>
+            <button>Buy</button>
+        </div>
+        <div class="card">
+            <img src="electronics.jpg" alt="Electronics Gadgets">
+            <h2>Electronics Gadgets</h2>
+            <p>Price: ₹2499</p>
+            <button>Buy</button>
+        </div>
+        <div class="card">
+            <img src="kitchen-tools.jpg" alt="Kitchen Tools">
+            <h2>Kitchen Tools</h2>
+            <p>Price: ₹299</p>
+            <button>Buy</button>
+        </div>
+        <div class="card">
+            <img src="perfumes.jpg" alt="Perfumes">
+            <h2>Perfumes</h2>
+            <p>Price: ₹599</p>
+            <button>Buy</button>
+        </div>
+        <div class="card">
+            <img src="hair-growth.jpg" alt="Hair Growth Products">
+            <h2>Hair Growth Products</h2>
+            <p>Price: ₹499</p>
+            <button>Buy</button>
+        </div>
     </div>
-
-    <!-- Electronic Gadget Product -->
-    <div class="category-section">
-        <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=600&q=80" alt="Wireless Earbuds" class="product-image" />
-        <div class="product-name">Wireless Earbuds Pro</div>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
-
-    <!-- Fitness Tool Product -->
-    <div class="category-section">
-        <img src="https://images.unsplash.com/photo-1546484959-f95ca80014e0?auto=format&fit=crop&w=600&q=80" alt="Smart Fitness Band" class="product-image" />
-        <div class="product-name">Smart Fitness Band</div>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
-
-    <!-- Kitchen Tool Product -->
-    <div class="category-section">
-        <img src="https://images.unsplash.com/photo-1528756514091-dee8f9fbb508?auto=format&fit=crop&w=600&q=80" alt="Multipurpose Blender" class="product-image" />
-        <div class="product-name">Multipurpose Blender</div>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
-
 </body>
 </html>
