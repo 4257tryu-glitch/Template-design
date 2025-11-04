@@ -1,111 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Templates</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card h2 {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-
-        .card p {
-            font-size: 1.2em;
-            color: #333;
-        }
-
-        .card button {
-            padding: 10px 20px;
-            margin: 10px 0;
-            border: none;
-            background-color: #28a745;
-            color: #fff;
-            font-size: 1em;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .card button:hover {
-            background-color: #218838;
-        }
-    </style>
+<meta charset="UTF-8" />
+<title>म्यूजिक प्लेयर</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+  audio { width: 300px; margin-top: 20px; }
+  button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <img src="screen-care.jpg" alt="Screen Care">
-            <h2>Screen Care</h2>
-            <p>Price: ₹399</p>
-            <button>Buy</button>
-        </div>
-        <div class="card">
-            <img src="fitness.jpg" alt="Fitness Products">
-            <h2>Fitness Products</h2>
-            <p>Price: ₹999</p>
-            <button>Buy</button>
-        </div>
-        <div class="card">
-            <img src="electronics.jpg" alt="Electronics Gadgets">
-            <h2>Electronics Gadgets</h2>
-            <p>Price: ₹2499</p>
-            <button>Buy</button>
-        </div>
-        <div class="card">
-            <img src="kitchen-tools.jpg" alt="Kitchen Tools">
-            <h2>Kitchen Tools</h2>
-            <p>Price: ₹299</p>
-            <button>Buy</button>
-        </div>
-        <div class="card">
-            <img src="perfumes.jpg" alt="Perfumes">
-            <h2>Perfumes</h2>
-            <p>Price: ₹599</p>
-            <button>Buy</button>
-        </div>
-        <div class="card">
-            <img src="hair-growth.jpg" alt="Hair Growth Products">
-            <h2>Hair Growth Products</h2>
-            <p>Price: ₹499</p>
-            <button>Buy</button>
-        </div>
-    </div>
+<h1>म्यूजिक प्लेयर</h1>
+<audio id="music" controls>
+  <source src="your-song.mp3" type="audio/mpeg" />
+  आपका ब्राउज़र ऑडियो टैग सपोर्ट नहीं करता।
+</audio>
+<button onclick="togglePlay()">प्लेलिस्ट प्ले/पॉज करें</button>
+
+<script>
+  const music = document.getElementById('music');
+  function togglePlay() {
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+</script>
 </body>
 </html>
